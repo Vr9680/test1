@@ -1,0 +1,39 @@
+name: "Sonar-Qube Scan"
+description: "Scan your code with SonarQube Scanner to detect bugs, vulnerabilities and code smells in more than 25 programming languages."
+author: "Dtltasu"
+
+branding:
+  icon: "check"
+  color: "green"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+inputs:
+  host:
+    description: "SonarQube server URL."
+    required: true
+  projectKey:
+    description: "The project's unique key. Allowed characters are: letters, numbers, -, _, . and :, with at least one non-digit."
+    required: false
+    default: ""
+  projectName:
+    description: "Name of the project that will be displayed on the web interface."
+    required: false
+    default: ""
+  projectVersion:
+    description: "The project version."
+    required: false
+    default: ""
+  projectBaseDir:
+    description: "Set the sonar.projectBaseDir analysis property."
+    required: false
+    default: "."
+  token:
+    description: "Login or authentication token of a SonarQube user."
+    required: true
+  encoding:
+    description: "Encoding of the source code."
+    required: false
+    default: "UTF-8"
